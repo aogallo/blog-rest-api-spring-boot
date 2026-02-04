@@ -2,6 +2,7 @@ package com.aogallo.blog.mappers;
 
 import com.aogallo.blog.domain.PostStatus;
 import com.aogallo.blog.domain.dtos.CategoryDTO;
+import com.aogallo.blog.domain.dtos.CreateCategoryRequest;
 import com.aogallo.blog.domain.entities.Category;
 import com.aogallo.blog.domain.entities.Post;
 import org.mapstruct.Mapper;
@@ -16,6 +17,7 @@ public interface ICategoryMapper {
     @Mapping(target = "postCount", source = "posts", qualifiedByName = "calculatePostCount")
     CategoryDTO toDTO(Category category);
 
+    Category toEntity(CreateCategoryRequest request);
 
     @Named("calculatePostCount")
     default long calculatePostCount(List<Post> posts) {
