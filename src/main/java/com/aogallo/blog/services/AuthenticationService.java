@@ -21,7 +21,7 @@ public class AuthenticationService implements IAuthenticationService {
 
     @Override
     public UserDetails authenticate(String email, String password) {
-        
+
         authenticationManager.authenticate()
     }
 
