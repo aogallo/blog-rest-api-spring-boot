@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     private final IAuthenticationService authenticationService;
 
-    @PostMapping(path = "/login")
+    //    @PostMapping(path = "/login")
+    @PostMapping
     public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest loginRequest) {
         UserDetails user = authenticationService.authenticate(loginRequest.getEmail(), loginRequest.getPassword());
          authenticationService.generateToken(user);
