@@ -56,7 +56,11 @@ public class AuthenticationService implements IAuthenticationService {
     }
 
     private String extractUsername(String token) {
-        Claims claims = Jwts.parserBuilder().setSigningKey(jwtSecret).build().parseClaimsJws(token).getBody();
+        Claims claims = Jwts.parserBuilder()
+                .setSigningKey(getJwtSecret())
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
         return claims.getSubject();
     }
 
